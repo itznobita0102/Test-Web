@@ -7,7 +7,8 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0f172a; /* Solid background to avoid broken image */
+      background: url('vesper.png') no-repeat center center fixed;
+      background-size: cover;
       color: white;
     }
 
@@ -100,39 +101,9 @@
       outline: none;
     }
 
-    #chat-box {
-      margin-top: 20px;
-      max-height: 300px;
-      overflow-y: auto;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
-    }
-
-    #chat-input {
-      width: 80%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      background: #ff7f50;
-      color: white;
-      border: none;
-    }
-
-    #send-message {
-      padding: 10px 20px;
-      margin-top: 10px;
-      background: #ff6347;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    #send-message:hover {
-      background: #ff4500;
+    .status-emoji {
+      font-size: 24px;
+      margin-left: 10px;
     }
   </style>
 </head>
@@ -140,7 +111,7 @@
   <div class="container">
     <h1>Vesper SMP</h1>
 
-    <div class="section-title">Status: Online</div>
+    <div class="section-title">Status: Online <span class="status-emoji">🌟</span></div>
     <div class="info">
       <div class="label">Address</div>
       <div class="value">
@@ -152,7 +123,7 @@
       <div class="label">Players</div>
       <div class="value">312 / 999999</div>
       <div class="label">Location</div>
-      <div class="value"><span style="color: #38bdf8;">🌍 France</span></div>
+      <div class="value"><span style="color: #38bdf8;">🌍 India</span></div>
       <div class="label">Version</div>
       <div class="value">1.2.0</div>
     </div>
@@ -171,13 +142,6 @@
       <div class="value">6</div>
       <div class="label">Discussions</div>
       <div class="value">2</div>
-    </div>
-
-    <div class="section-title">Chat</div>
-    <div class="info">
-      <input id="chat-input" type="text" placeholder="(Not connected)" disabled />
-      <button id="send-message" disabled>Send</button>
-      <div id="chat-box">Chat system is disabled for GitHub Pages.</div>
     </div>
 
     <div class="footer">
