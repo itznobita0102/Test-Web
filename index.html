@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vesper SMP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('vesper.png') no-repeat center center fixed; /* Old background image */
+      background-size: cover;
+      color: white;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 30px auto;
+      background: rgba(0, 0, 0, 0.85); /* Dark background for contrast */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #fff;
+      border-bottom: 3px solid #facc15;
+      display: inline-block;
+      padding-bottom: 5px;
+      background: linear-gradient(to right, #ff7f50, #ff6347);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 25px;
+      border-left: 5px solid #facc15;
+      padding-left: 10px;
+      color: #facc15;
+    }
+
+    .info, .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 10px;
+      column-gap: 20px;
+      margin-top: 20px;
+      padding: 20px;
+      background: linear-gradient(45deg, #ff6347, #ff7f50, #ff4500);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 99, 71, 0.8), 0 0 30px rgba(255, 69, 0, 1);
+    }
+
+    .label {
+      font-weight: bold;
+      background: #1e40af;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+    }
+
+    .value {
+      background: #0f172a;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(255, 69, 0, 0.7);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .copy-btn {
+      padding: 10px 20px;
+      background: linear-gradient(45deg, #ff7f50, #ff4500, #ff6347);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.7), 0 0 30px rgba(255, 99, 71, 0.8);
+    }
+
+    .copy-btn:hover {
+      background: linear-gradient(45deg, #ff6347, #ff7f50, #ff4500);
+      box-shadow: 0 0 30px rgba(255, 99, 71, 0.9), 0 0 50px rgba(255, 69, 0, 1);
+    }
+
+    .copy-btn:focus {
+      outline: none;
+    }
+
+    #chat-box {
+      margin-top: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.7);
+    }
+
+    #chat-input {
+      width: 80%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      background: #ff7f50;
+      color: white;
+      border: none;
+    }
+
+    #send-message {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #ff6347;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #send-message:hover {
+      background: #ff4500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vesper SMP</h1>
+
+    <div class="section-title">Status: Online</div>
+    <div class="info">
+      <div class="label">Address</div>
+      <div class="value">
+        <span id="server-ip">vespersmp.in</span>
+        <button id="copy-ip" class="copy-btn">Copy IP</button>
+      </div>
+      <div class="label">Hostname</div>
+      <div class="value">VESPERCRAFT!</div>
+      <div class="label">Players</div>
+      <div class="value">312 / 999999</div>
+      <div class="label">Location</div>
+      <div class="value"><span style="color: #38bdf8;">🌍 France</span></div>
+      <div class="label">Version</div>
+      <div class="value">1.2.0</div>
+    </div>
+
+    <div class="section-title">Statistics</div>
+    <div class="stats">
+      <div class="label">Uptime</div>
+      <div class="value">100%</div>
+      <div class="label">Votes</div>
+      <div class="value">0</div>
+      <div class="label">Rank</div>
+      <div class="value">799</div>
+      <div class="label">Score</div>
+      <div class="value">2</div>
+      <div class="label">Favorited</div>
+      <div class="value">6</div>
+      <div class="label">Discussions</div>
+      <div class="value">2</div>
+    </div>
+
+    <div class="section-title">Chat</div>
+    <div class="info">
+      <input id="chat-input" type="text" placeholder="Type a message..." />
+      <button id="send-message">Send</button>
+      <div id="chat-box"></div>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 Vesper SMP - All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    // IP Copy Functionality
+    document.getElementById('copy-ip').addEventListener('click', function() {
+      const ip = document.getElementById('server-ip').textContent;
+      navigator.clipboard.writeText(ip).then(function() {
+        alert("IP copied to clipboard!");
+      }).catch(function(err) {
+        alert("Failed to copy IP: " + err);
+      });
+    });
+
+    // Chat Functionality (For demonstration, it only appends messages to the chat box)
+    const socket = new WebSocket('ws://localhost:3000');  // Adjust WebSocket server address if needed
+
+    document.getElementById('send-message').addEventListener('click', function() {
+      const message = document.getElementById('chat-input').value;
+      socket.send(message);
+      document.getElementById('chat-input').value = '';  // Clear the input field
+    });
+
+    socket.onmessage = function(event) {
+      const chatBox = document.getElementById('chat-box');
+      const newMessage = document.createElement('div');
+      newMessage.textContent = event.data;
+      chatBox.appendChild(newMessage);
+    };
+  </script>
+</body>
+</html>
