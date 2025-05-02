@@ -7,8 +7,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('vesper.png') no-repeat center center fixed; /* Old background image */
-      background-size: cover;
+      background: #0f172a; /* Solid background to avoid broken image */
       color: white;
     }
 
@@ -16,7 +15,7 @@
       width: 90%;
       max-width: 1000px;
       margin: 30px auto;
-      background: rgba(0, 0, 0, 0.85); /* Dark background for contrast */
+      background: rgba(0, 0, 0, 0.85);
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
@@ -176,9 +175,9 @@
 
     <div class="section-title">Chat</div>
     <div class="info">
-      <input id="chat-input" type="text" placeholder="Type a message..." />
-      <button id="send-message">Send</button>
-      <div id="chat-box"></div>
+      <input id="chat-input" type="text" placeholder="(Not connected)" disabled />
+      <button id="send-message" disabled>Send</button>
+      <div id="chat-box">Chat system is disabled for GitHub Pages.</div>
     </div>
 
     <div class="footer">
@@ -196,22 +195,6 @@
         alert("Failed to copy IP: " + err);
       });
     });
-
-    // Chat Functionality (For demonstration, it only appends messages to the chat box)
-    const socket = new WebSocket('ws://localhost:3000');  // Adjust WebSocket server address if needed
-
-    document.getElementById('send-message').addEventListener('click', function() {
-      const message = document.getElementById('chat-input').value;
-      socket.send(message);
-      document.getElementById('chat-input').value = '';  // Clear the input field
-    });
-
-    socket.onmessage = function(event) {
-      const chatBox = document.getElementById('chat-box');
-      const newMessage = document.createElement('div');
-      newMessage.textContent = event.data;
-      chatBox.appendChild(newMessage);
-    };
   </script>
 </body>
 </html>
